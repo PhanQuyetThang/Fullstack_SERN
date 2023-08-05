@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get CRUD</title>
+</head>
+<style>
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #customers td,
+    #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #customers tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #5d10a0;
+        color: white;
+    }
+
+    .btn-edit {
+        display: inline-flex;
+        width: 70px;
+        height: 33px;
+        text-decoration: none;
+        border: none;
+        border-radius: 4px;
+        background-color: #ffffff;
+        color: black;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1),
+            1px 1px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-edit:hover {
+        background-color: #5d10a0;
+        color: #ffffff;
+        box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.15),
+            3px 3px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-delete {
+        display: inline-flex;
+        width: 70px;
+        height: 33px;
+        text-decoration: none;
+        border: none;
+        border-radius: 4px;
+        background-color: #ffffff;
+        color: black;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1),
+            1px 1px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-delete:hover {
+        background-color: #5d10a0;
+        color: #ffffff;
+        box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.25),
+            3px 3px 30px rgba(0, 0, 0, 0.25);
+    }
+</style>
+
+<body>
+    <h1>User List</h1>
+    <table id="customers">
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone Number</th>
+            <th>Action</th>
+        </tr>
+        <% for(var i=0; i < tableData.length; i++) { %>
+            <tr>
+                <td>
+                    <%= tableData[i].id %>
+                </td>
+                <td>
+                    <%= tableData[i].email %>
+                </td>
+                <td>
+                    <%= tableData[i].firstName %>
+                </td>
+                <td>
+                    <%= tableData[i].lastName %>
+                </td>
+                <td>
+                    <%= tableData[i].phonenumber %>
+                </td>
+                <td>
+                    <a href="/edit-crud?id=<%=tableData[i].id%>" class="btn-edit">Edit</a>
+                    <a href="/delete-crud?id=<%=tableData[i].id%>" class="btn-delete">Delete</a>
+                </td>
+            </tr>
+            <% } %>
+    </table>
+</body>
+
+</html>
